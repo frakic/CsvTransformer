@@ -1,0 +1,101 @@
+﻿<Window x:Class="CsvTransformer.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CsvTransformer.App"
+        mc:Ignorable="d"
+        Title="CSV Transformer" Height="310" Width="400">
+    <StackPanel>
+        <Border
+            Margin="5,5,5,5"
+            BorderBrush="Gray"
+            BorderThickness="0.5"
+            CornerRadius="1">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    ShadowDepth="1"
+                    Opacity="0.25"
+                    RenderingBias="Quality" />
+            </Border.Effect>
+            <StackPanel
+                Name="FilePanel"
+                Drop="FilePanel_Drop"
+                AllowDrop="True"
+                Background="White" PreviewDragOver="FilePanel_PreviewDragOver">
+                <Button
+                    Style="{DynamicResource FileButton}"
+                    Click="FileButton_Click"
+                    Height="100"
+                    Width="100"
+                    Margin="25">
+                    <Grid>
+                        <Image
+                            Name="FileAdd"
+                            Source="Resources/FileAdd.png" />
+                        <Image
+                            Name="FileSuccess"
+                            Source="/Resources/FileSuccess.png"
+                            Visibility="Hidden" />
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Grid>
+            <Label
+                Name="FileMessage"
+                HorizontalAlignment="Center"
+                FontFamily="Calibri"
+                FontWeight="Normal">
+                Dovucite datoteku ili kliknite ikonu za učitavanje.
+            </Label>
+            <StackPanel>
+            <Border
+                Name="UploadedFile"
+                Visibility="Hidden"
+                Padding="2"
+                Margin="5,5,5,5"
+                BorderBrush="Gray"
+                BorderThickness="0.5"
+                CornerRadius="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="8*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                    Source="/Resources/FileIcon.png"
+                    Name="FileIcon"
+                    Grid.Column="0"
+                    Height="15" />
+                    <Label
+                    Name="FileName"
+                    Grid.Column="1" />
+                    <Button
+                    Style="{DynamicResource FileButton}"
+                    Height="15"
+                    Width="15"
+                    Grid.Column="2" Click="RemoveFile_Click">
+                        <Image Source="/Resources/RemoveIcon.png" />
+                    </Button>
+                </Grid>
+            </Border>
+                <Grid Margin="0 20 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Name="DoTransformation"
+                            Click="DoTransformation_Click"
+                            Grid.Column="1"
+                            Padding="5"
+                            Visibility="Hidden">Pretvori</Button>
+                </Grid>
+            
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

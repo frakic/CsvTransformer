@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\Transformer.ico</ApplicationIcon>
+    <AssemblyName>CSV Transformator</AssemblyName>
+    <Authors>Filip Rakić</Authors>
+    <Company>Filip Rakić</Company>
+    <Description>Aplikacija za transformaciju CSV datoteka</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="FileAdd.png" />
+    <None Remove="FileIcon.png" />
+    <None Remove="FileSuccess.png" />
+    <None Remove="RemoveIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Transformer.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="29.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\FileAdd.png" />
+    <Resource Include="Resources\FileIcon.png" />
+    <Resource Include="Resources\FileSuccess.png" />
+    <Resource Include="Resources\RemoveIcon.png" />
+  </ItemGroup>
+
+</Project>
